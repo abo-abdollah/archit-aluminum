@@ -1,0 +1,341 @@
+/* ================= ROOT ================= */
+:root {
+  --primary: #0d6efd;
+  --secondary: #20c997;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #334155;
+  --heading: #0f172a;
+  --gradient: linear-gradient(135deg, #0d6efd, #20c997);
+}
+
+body.dark {
+  --bg: #0b1220;
+  --card: #111827;
+  --text: #cbd5f5;
+  --heading: #ffffff;
+  --gradient: linear-gradient(135deg, #38bdf8, #22c55e);
+}
+
+/* ================= GLOBAL ================= */
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5 {
+  color: var(--heading);
+  font-weight: 800;
+}
+
+/* ================= HERO ================= */
+.main-header {
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero-image-full-width {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-image-full-width img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  animation: heroZoom 20s infinite alternate;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.4)
+  );
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
+}
+
+/* ================= NAVBAR ================= */
+.custom-navbar {
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.75);
+  transition: 0.4s;
+}
+
+body.dark .custom-navbar {
+  background: rgba(17,24,39,0.75);
+}
+
+/* ================= HEADINGS HOVER ================= */
+.custom-heading-hover {
+  position: relative;
+}
+
+.custom-heading-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--gradient);
+  transition: .4s;
+}
+
+.custom-heading-hover:hover::after {
+  width: 100%;
+}
+
+/* ================= FEATURES ================= */
+.feature-icon-box {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 16px;
+  transition: .4s;
+}
+
+.feature-icon-box i {
+  font-size: 26px;
+  color: var(--primary);
+}
+
+.feature-icon-box:hover {
+  background: var(--card);
+  box-shadow: 0 30px 70px rgba(0,0,0,.15);
+  transform: translateY(-8px);
+}
+
+/* ================= IMAGE SLIDE + PARALLAX ================= */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  transform: translateX(80px);
+  opacity: 0;
+  animation: slideIn 1.2s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.image-container img {
+  transition: transform 1s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.12);
+}
+
+/* ================= PARALLAX ================= */
+.parallax {
+  background-attachment: fixed;
+}
+
+/* ================= CARDS ================= */
+.card,
+.stat-item-box,
+.team-member-card {
+  background: var(--card);
+  border: none;
+  transition: .4s;
+}
+
+.card:hover,
+.stat-item-box:hover,
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.2);
+}
+
+/* ================= TEAM ================= */
+.team-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+/* ================= FOOTER ================= */
+.footer-section {
+  background: linear-gradient(to top, #e2e8f0, var(--bg));
+}
+
+body.dark .footer-section {
+  background: linear-gradient(to top, #020617, var(--bg));
+}
+
+/* ================= CUSTOM SECTION ================= */
+.custom-section {
+  background: #f8fafc;
+  transition: background 0.4s ease;
+}
+
+body.dark .custom-section {
+  background: #020617;
+}
+body.dark .custom-section h1,
+body.dark .custom-section p {
+  color: #e5e7eb;
+}
+
+  /***************contact***********************/
+  :root {
+  --dark-green: #145A32;
+}
+
+
+.text-success,
+.border-success,
+.btn-outline-success {
+  color: var(--dark-green) !important;
+  border-color: var(--dark-green) !important;
+}
+
+
+.btn-outline-success:hover,
+.custom-hover:hover {
+  background-color: var(--dark-green) !important;
+  color: #fff !important;
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+/* ================= DARK MODE TEXT FIX ================= */
+body.dark,
+body.dark p,
+body.dark span,
+body.dark li,
+body.dark a,
+body.dark small {
+  color: #e5e7eb !important;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5 {
+  color: #ffffff !important;
+}
+
+/* أي نص Bootstrap */
+body.dark .text-dark {
+  color: #ffffff !important;
+}
+
+body.dark .text-secondary {
+  color: #cbd5e1 !important;
+}
+
+body.dark p {
+  opacity: 0.9;
+}
+
+body.dark small {
+  opacity: 0.8;
+}
+
+/* ================= FOOTER CONTACT CENTER ================= */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* الرابط */
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+/* أيقونات */
+.footer-link i,
+.footer-id i {
+  font-size: 20px;
+}
+
+/* Hover */
+.footer-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  color: #25d366;
+}
+
+/* Email hover */
+.footer-link[href^="mailto"]:hover {
+  color: #38bdf8;
+}
+
+/* ID */
+.footer-id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.85;
+}
+
+/* ================= ANIMATION ================= */
+.animate-contact {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: contactFadeUp 0.8s ease forwards;
+}
+
+.animate-contact.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.animate-contact.delay-2 {
+  animation-delay: 0.4s;
+}
+
+@keyframes contactFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= DARK MODE ================= */
+body.dark .footer-link,
+body.dark .footer-id {
+  color: #e5e7eb;
+}
+/* ================= TYPING EFFECT ================= */
+#typingText::after {
+  content: "|";
+  margin-left: 6px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+.main-header h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
