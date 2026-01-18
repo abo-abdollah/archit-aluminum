@@ -569,3 +569,158 @@ body.dark .project-gallery {
 }
 
 /* ================================================= */
+
+/* ================= Moon Cards ================= */
+
+.moon-cards-section {
+  position: relative;
+}
+
+/* الكارت */
+.moon-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 30px 20px 40px;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
+  transition: transform .4s ease, box-shadow .4s ease;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.moon-card:hover {
+  transform: translateY(-10px);
+}
+
+/* الخلفية (هلال + نجوم) */
+.moon-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.15) 2px, transparent 3px),
+    radial-gradient(circle at 30% 60%, rgba(255,255,255,.12) 1.5px, transparent 3px),
+    radial-gradient(circle at 60% 40%, rgba(255,255,255,.1) 1.8px, transparent 3px),
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.08) 2px, transparent 3px);
+  z-index: 0;
+}
+
+/* الهلال */
+.moon-bg::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.4));
+  opacity: .35;
+}
+
+/* الصورة */
+.moon-img {
+  position: relative;
+  z-index: 1;
+  width: 85%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin: 0 auto 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,.25);
+}
+
+/* العنوان */
+.moon-title {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* ================= Light / Dark Mode ================= */
+
+:root {
+  --card-bg: #ffffff;
+  --text-main: #222;
+  --card-shadow: 0 20px 40px rgba(0,0,0,.1);
+}
+
+body.dark{
+  --card-bg: #0f172a;
+  --text-main: #f1f5f9;
+  --card-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
+
+/* تحسين الريسبونسيف */
+@media (max-width: 768px) {
+  .moon-img {
+    height: 200px;
+  }
+}
+
+
+.moon-card {
+  opacity: 0;
+  transform: translateY(40px) scale(.96);
+  animation: cardReveal .9s ease forwards;
+}
+
+.moon-card:nth-child(1) { animation-delay: .1s; }
+.moon-card:nth-child(2) { animation-delay: .25s; }
+.moon-card:nth-child(3) { animation-delay: .4s; }
+
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/*************************************/
+.moon-card {
+  transition: transform .6s ease, box-shadow .6s ease;
+}
+
+.moon-card:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.35),
+    0 0 40px rgba(255,255,255,.05);
+}
+/***********************************************/
+.moon-img {
+  transition: transform .7s ease;
+}
+
+.moon-card:hover .moon-img {
+  transform: scale(1.08) rotate(-1deg);
+}
+/**************************************************/
+.moon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,.15),
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform .8s ease;
+}
+
+.moon-card:hover::before {
+  transform: translateX(100%);
+}
+/***************************************************************************/
+.moon-title {
+  transition: letter-spacing .4s ease, color .4s ease;
+}
+
+.moon-card:hover .moon-title {
+  letter-spacing: 1.5px;
+  color: #d4af37; /* ذهبي فاخر */
+}
+/******************************************************************************/
