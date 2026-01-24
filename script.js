@@ -1,13 +1,4 @@
-const toggleBtn = document.getElementById("themeToggle");
-const body = document.body;
 
-toggleBtn.addEventListener("click", () => {
-  body.classList.toggle("dark");
-
-  toggleBtn.innerHTML = body.classList.contains("dark")
-    ? "☀️"
-    : "🌙";
-});
 
 const text = "Architect Aluminium";
 const typingElement = document.getElementById("typingText");
@@ -55,13 +46,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 teamCards.forEach(card => observer.observe(card));
 
 // ---------- Optional: Carousel Auto Scroll ----------
-const carouselElement = document.querySelector('#teamCarousel');
-if(carouselElement){
-    const carousel = new bootstrap.Carousel(carouselElement, {
-        interval: 4000,
-        ride: 'carousel'
-    });
-}
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -97,3 +82,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // راقب كل العناصر اللي عليها كلاس reveal
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 });
+
